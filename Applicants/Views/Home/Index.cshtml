@@ -1,0 +1,147 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Enrollee.Models.Feedback
+
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <p>ХНЕУ війшов у тридцятку кращих вишів для IT-галузі</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            За даними <cite title="Source Title">dou.ua</cite>
+        </figcaption>
+    </figure>
+
+    <br><br>
+
+    <div class="studying" id="studying">
+
+        <div class="inline-container">
+            <video width="50%" height="50%" autoplay loop id="video" muted="muted">
+                <source src="images/video.mp4" type="video/mp4">
+            </video>
+            <script>
+          setTimeout(() => document.getElementById('video').play(), 1000);
+            </script>
+            <div class="text-inline">
+                <p>
+                    Сфера IT є найбільш динамічним сектором світової економіки і сучасне
+                    життя неможливо уявити без використання IT-технологій. Саме тому попит
+                    на фахівців в цій сфері постійно зростає. Отримання IT освіти гарантує
+                    кожному випускнику працевлаштування та високий дохід. Факультет
+                    інформаційних технологій Харківського національного економічного
+                    університету імені Семена Кузнеця вже більше 55 років готує найкращих
+                    фахівців в галузі IT. Висока якість підготовки на факультеті
+                    інформаційних технологій підтверджується результатами опитувань та
+                    незалежними рейтингами.
+                </p>
+            </div>
+        </div>
+
+        <br><br>
+        <h3 style="margin-bottom: 20px;">Наші переваги</h3>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="images/one.jpeg" class="card-img-top" alt="переваги">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Співробітництво із закордонними університетами та можливість
+                            отримання подвійних дипломів (Спільна франко-українська
+                            програма МВА «Бізнес-інформатика», спільна словацько-українська
+                            програма МВА «Бізнес-аналітика та інформаційні системи
+                            в підприємництві»).
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="images/three.jpeg" class="card-img-top" alt="переваги">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Співпраця з провідними IT-компаніями, які надають додаткові
+                            навчальні програми та можливість працевлаштування
+                            випускників факультету: Microsoft (в рамках Microsoft IT Academy),
+                            CISCO, EPAM Systems, NIX Solutions, DataArt, SIGMA Ukraine та інші.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="images/two.jpeg" class="card-img-top" alt="переваги">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Безперервна підготовка з іноземних мов (з можливістю вивчення другої
+                            іноземної мови). У 2018 році відкрито групи, в яких студенти мають можливість
+                            навчатися повністю англійською мовою за освітніми програмами
+                            “Комп’ютерні науки” та “Інженерія програмного забезпечення”.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br />
+    </div>
+    <div class="partnership" id="partnership">
+        <h3>Партнерство</h3>
+        <div class="gallery js-flickity"
+             data-flickity-options='{ "wrapAround": true }'>
+            <div class="gallery-cell">
+                <img src="images/partners/1.PNG" alt="partners first list" />
+            </div>
+            <div class="gallery-cell">
+                <img src="images/partners/2.PNG" alt="partners second list" />
+            </div>
+            <div class="gallery-cell">
+                <img src="images/partners/3.PNG" alt="partners third list" />
+            </div>
+        </div>
+    </div>
+    <div class="contact-details" id="contact-details">
+        <h3>Контакти факультету Інформаційних технологій</h3>
+        <i class="icon-map-marker"></i> Адреса
+        <p>61166, Україна, м. Харків, пр-т Науки 9а,<br>ХНЕУ ім. С. Кузнеця, Головний корпус, ауд. 420.</p>
+        <i class="icon-phone"></i> Телефон
+        <p>+38 (057) 702-18-31</p>
+        <i class="icon-desktop"></i> Сайт
+        <p>www.it.hneu.edu.ua</p>
+        <i class="icon-facebook-sign"></i> Фейсбук
+        <p>www.facebook.com/ithneu</p>
+        <i class="icon-envelope"></i> Електронна пошта
+        <p>dekei@hneu.edu.ua</p>
+
+        <br>
+        <p style="text-align: center; margin: 10px">
+            Або <a href="#callback-modal" class="a-callback">залиште свої контактні дані</a> і ми
+            обов'язково зв'яжемося з Вами
+        </p>
+        <br>
+    </div>
+
+    <div id="callback-modal" class="modal-window">
+      <div>
+        <a href="#" title="Close" class="modal-close">Закрити</a>
+        <h1>Як можна з Вами зв'язатися?</h1>
+        @using (Html.BeginForm("SendRequest", "Home")){
+          <label>
+            Ваше ім'я:
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { name = "name"}})
+          </label>
+          <br />
+          <label>
+            Телефон/Пошта/Telegram:
+            @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { name = "contactLink"}})
+          </label>
+          <br />
+          <label>
+            Питання:
+            <br />
+            @Html.TextAreaFor(model => model.Question, new { htmlAttributes = new { name = "message"}})
+          </label>
+          <br />
+          <input type="submit" />
+        }
+      </div>
+    </div>
